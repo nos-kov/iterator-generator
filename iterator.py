@@ -12,16 +12,20 @@ class FlatIterator:
 
     def __next__(self):
 
-        if self.i <= len(self.list_of_list):
+        if self.i < len(self.list_of_list)-1:
             
             if self.j < len(self.list_of_list[self.i]):
-                if self.j == len(self.list_of_list[self.i]):
+                if self.j == len(self.list_of_list[self.i])-1:
                     self.i += 1
+                    self.j = -1
             else:
                 raise StopIteration
             self.j += 1
         else:
-            raise StopIteration
+            if self.i == len(self.list_of_list) or self.j == len(self.list_of_list[self.i])-1:
+                raise StopIteration
+            else:
+                self.j += 1
 
         return self.list_of_list[self.i][self.j]
 
