@@ -18,8 +18,6 @@ class FlatIterator:
                 if self.j == len(self.list_of_list[self.i])-1:
                     self.i += 1
                     self.j = -1
-            else:
-                raise StopIteration
             self.j += 1
         else:
             if self.i == len(self.list_of_list) or self.j == len(self.list_of_list[self.i])-1:
